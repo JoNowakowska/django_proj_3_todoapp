@@ -3,13 +3,13 @@
 {% block content %}
 
 <ul>
-    {% for todo in current_todos %}
+    {% for todo in completed_todos %}
     <li>
         <a href="{% url 'viewtodo' todo.id %}">
             {% if todo.high_importance %}
                 <b>
             {% endif %}
-                {{ todo.title }}
+                {{ todo.date_completed|date:'M j Y H:i' }} - {{ todo.title }}
             {% if todo.high_importance %}
                 </b>
             {% endif %}
